@@ -1,0 +1,18 @@
+{
+  "name": "sortwell",
+  "version": "0.1.0",
+  "description": "An inbox with judgment. Files every note, link and meeting line by itself, decides what needs you, and tells you what matters today.",
+  "author": { "name": "Dharun Prasanth", "url": "https://github.com/Dharundp6" },
+  "homepage": "https://github.com/Dharundp6/jev-sortwell",
+  "repository": "https://github.com/Dharundp6/jev-sortwell",
+  "license": "MIT",
+  "keywords": ["second-brain", "pkm", "inbox", "triage", "notes", "jev", "typesafe", "mcp"],
+  "skills": ["./skills"],
+  "mcpServers": {
+    "sortwell": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/cli.js"]
+    }
+  },
+  "experimental": { "evals": "evals" }
+}

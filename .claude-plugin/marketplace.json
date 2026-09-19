@@ -1,0 +1,14 @@
+{
+  "name": "sortwell",
+  "description": "An inbox with judgment: a second brain that decides what belongs where and what deserves your attention, using TypeSafe's Jev.",
+  "owner": { "name": "Dharun Prasanth", "url": "https://github.com/Dharundp6" },
+  "plugins": [
+    {
+      "name": "sortwell",
+      "source": "./",
+      "description": "Files notes, links and meeting lines by themselves and ranks what matters today.",
+      "version": "0.1.0",
+      "license": "MIT"
+    }
+  ]
+}

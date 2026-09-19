@@ -1,0 +1,13 @@
+{
+  "description": "Puts the day's shortlist in front of you when a session starts. Silent when nothing is open, and it never blocks: the command always exits zero.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear",
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/dist/cli.js\" shortlist --quiet", "timeout": 25 }
+        ]
+      }
+    ]
+  }
+}

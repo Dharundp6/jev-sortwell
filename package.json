@@ -1,0 +1,54 @@
+{
+  "name": "sortwell",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An inbox with judgment. MCP server that files every note, link and meeting line by itself: TypeSafe's Jev decides what kind of thing it is, which project it belongs to, whether it needs you, and whether you already have it.",
+  "type": "module",
+  "bin": {
+    "sortwell": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "second-brain",
+    "pkm",
+    "inbox",
+    "triage",
+    "jev",
+    "typesafe",
+    "evaluation-model",
+    "claude-code",
+    "agents"
+  ],
+  "author": "Dharun Prasanth",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dharundp6/jev-sortwell.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dharundp6/jev-sortwell/issues"
+  },
+  "homepage": "https://github.com/Dharundp6/jev-sortwell#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.0"
+  }
+}
