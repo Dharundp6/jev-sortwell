@@ -58,10 +58,15 @@ function brief(item: Item): string {
  * them, because a per-item question would cost a request per capture.
  */
 export function candidates(items: readonly Item[], limit = NEAREST_POOL): Item[] {
-  return [...items]
-    .filter((i) => !i.duplicateOf)
-    .sort((a, b) => b.at.localeCompare(a.at))
-    .slice(0, limit);
+  // Two items captured inside the same millisecond carry the same timestamp,
+  // so the comparison returns 0 and the order falls back to whatever the
+  // engine does. Position in the file breaks the tie: later means newer.
+  return items
+    .map((item, index) => ({ item, index }))
+    .filter(({ item }) => !item.duplicateOf)
+    .sort((a, b) => b.item.at.localeCompare(a.item.at) || b.index - a.index)
+    .slice(0, limit)
+    .map(({ item }) => item);
 }
 
 export function buildState(text: string, source: string, buckets: readonly Bucket[], pool: readonly Item[]): string {

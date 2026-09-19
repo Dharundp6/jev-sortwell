@@ -340,3 +340,16 @@ describe("reading answers", () => {
     expect(score(res, "missing")).toBeNull();
   });
 });
+
+describe("ordering does not depend on the clock", () => {
+  it("puts the later item first even when both carry the same timestamp", () => {
+    const a = addItem({ text: "a", source: "n", kind: "task", action: "now", bucket: null, confidence: 1 }, env);
+    const b = addItem({ text: "b", source: "n", kind: "task", action: "now", bucket: null, confidence: 1 }, env);
+    // Force the collision that a fast machine produces on its own.
+    const same = [
+      { ...a, at: "2026-09-19T00:00:00.000Z" },
+      { ...b, at: "2026-09-19T00:00:00.000Z" },
+    ];
+    expect(candidates(same).map((i) => i.text)).toEqual(["b", "a"]);
+  });
+});
