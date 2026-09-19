@@ -108,14 +108,6 @@ Two append-only JSONL files in `~/.sortwell`, override with `SORTWELL_DIR`. Noth
 - **Never guess a home.** Below the routing threshold it says inbox.
 - **Never fail closed.** No key, or a scorer that errors, and `shortlist` returns everything unranked with a line saying why.
 
-## Development
-
-```sh
-npm install && npm run check
-```
-
-26 tests, a fake scorer, no network.
-
 ## License
 
 MIT
